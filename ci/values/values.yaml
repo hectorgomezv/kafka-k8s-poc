@@ -1,0 +1,5 @@
+replicaCount: 3
+defaultReplicationFactor: 3
+offsetsTopicReplicationFactor: 3
+transactionStateLogReplicationFactor: 3
+transactionStateLogMinIsr: 3
