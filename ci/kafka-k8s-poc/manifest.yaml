@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: kafka-k8s-poc
+  name: kafka-k8s-poc
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: kafka-k8s-poc
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kafka-k8s-poc
+    spec:
+      containers:
+      - image: hectorgomezv1/kafka-k8s-poc
+        name: kafka-k8s-poc-node
+        imagePullPolicy: Always
+        resources: {}
+        ports:
+          - containerPort: 3000
+      imagePullSecrets:
+        - name: regcred
+status: {}

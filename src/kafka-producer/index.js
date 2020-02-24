@@ -1,30 +1,16 @@
 require('dotenv').config();
-const { Kafka } = require('kafkajs');
+
+const { HTTP_PORT } = process.env;
 
 const {
-  BROKER_LIST,
-  TOPIC_NAME,
-} = process.env;
+  kafka,
+  server,
+} = require('./infrastructure');
 
-const parseBrokerList = (brokersList) => brokersList.split(';');
+const { sendMessage } = require('./domain/use-cases');
 
-const kafka = new Kafka({
-  clientId: 'my-app',
-  brokers: parseBrokerList(BROKER_LIST),
-});
+server.listen(HTTP_PORT);
 
-(async () => {
-  try {
-    const producer = kafka.producer();
-    await producer.connect();
-    
-    await producer.send({
-      topic: TOPIC_NAME,
-      messages: [{ value: 'Hello Kafka!' }],
-    });
-    
-    await producer.disconnect();
-  } catch (err) {
-    console.error(err);
-  }
-})();
+setInterval(async () => {
+  await sendMessage(kafka);
+}, 20000);
