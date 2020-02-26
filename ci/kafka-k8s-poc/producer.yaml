@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: kafka-k8s-poc
+  name: kafka-k8s-poc
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kafka-k8s-poc
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kafka-k8s-poc
+    spec:
+      containers:
+      - image: localhost:5000/kafka-k8s-poc-producer
+        name: kafka-k8s-poc-node
+        imagePullPolicy: Always
+        resources: {}
+        ports:
+          - containerPort: 3000
+        env:
+          - name: ROLE
+            value: producer
+status: {}
