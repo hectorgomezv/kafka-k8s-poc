@@ -15,7 +15,7 @@ jobs:
       run: docker build -t hectorgomezv1/kafka-k8s-poc:latest . 
     - name: Push container
       env:
-        REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+        DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
       run: |
-        docker login -u hectorgomezv1 -p $REGISTRY_PASSWORD
+        docker login -u hectorgomezv1 -p $DOCKERHUB_PASSWORD
         docker push hectorgomezv1/kafka-k8s-poc:latest
