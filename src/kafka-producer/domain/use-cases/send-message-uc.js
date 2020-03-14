@@ -1,4 +1,4 @@
-const { TOPIC_NAME } = process.env;
+const { TOPIC_NAME = 'kafka-k8s-poc-test' } = process.env;
 
 const sendMessage = async (kafka) => {
   try {

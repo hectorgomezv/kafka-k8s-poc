@@ -9,7 +9,7 @@ const {
 
 const { sendMessage } = require('./domain/use-cases');
 
-server.listen(HTTP_PORT);
+server.listen(HTTP_PORT || 3000);
 
 setInterval(async () => {
   await sendMessage(kafka);
