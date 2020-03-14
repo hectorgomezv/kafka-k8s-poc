@@ -1,16 +1,25 @@
 require('dotenv').config();
 
-const { HTTP_PORT } = process.env;
+const { ROLE, HTTP_PORT } = process.env;
 
 const {
   kafka,
   server,
 } = require('./infrastructure');
 
-const { sendMessage } = require('./domain/use-cases');
+const {
+  consumeMessages,
+  sendMessage,
+} = require('./domain/use-cases');
 
 server.listen(HTTP_PORT || 3000);
 
-setInterval(async () => {
-  await sendMessage(kafka);
-}, 20000);
+(async () => {
+  if (ROLE === 'producer') {
+    return setInterval(async () => {
+      await sendMessage(kafka);
+    }, 20000);
+  }
+
+  return consumeMessages(kafka);
+})();
