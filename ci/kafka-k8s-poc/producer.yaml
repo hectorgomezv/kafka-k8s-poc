@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: kafka-k8s-poc
-  name: kafka-k8s-poc
+    app: kafka-k8s-poc-producer
+  name: kafka-k8s-poc-producer
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: kafka-k8s-poc
+      app: kafka-k8s-poc-producer
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: kafka-k8s-poc
+        app: kafka-k8s-poc-producer
     spec:
       containers:
       - image: hectorgomezv1/kafka-k8s-poc

@@ -9,8 +9,7 @@ module.exports = (kafka) => {
       console.log({
         topic,
         partition,
-        key: message.key.toString(),
-        value: message.value.toString(),
+        message,
         headers: message.headers,
       });
     },
