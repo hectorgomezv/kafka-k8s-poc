@@ -5,10 +5,13 @@ const sendMessage = async (kafka) => {
     const producer = kafka.producer();
     await producer.connect();
 
-    await producer.send({
+    const message = {
       topic: TOPIC_NAME,
       messages: [{ value: 'Hello Kafka!' }],
-    });
+    };
+
+    console.log(message);
+    await producer.send(message);
 
     await producer.disconnect();
   } catch (err) {
