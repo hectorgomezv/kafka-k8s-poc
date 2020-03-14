@@ -18,8 +18,8 @@ spec:
         app: kafka-k8s-poc
     spec:
       containers:
-      - image: localhost:5000/kafka-k8s-poc-producer
-        name: kafka-k8s-poc-node
+      - image: hectorgomezv1/kafka-k8s-poc
+        name: kafka-k8s-poc-producer
         imagePullPolicy: Always
         resources: {}
         ports:

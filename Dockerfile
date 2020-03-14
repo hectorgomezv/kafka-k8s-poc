@@ -6,6 +6,6 @@ COPY ./src ./src
 COPY .env .env
 COPY package*.json ./
 
-RUN npm i --only=production
+RUN npm ci --only=production
 
 CMD ["node", "src/kafka-producer"]
