@@ -1,4 +1,4 @@
-require('../../kafka-producer/node_modules/dotenv').config();
+require('dotenv').config();
 
 const {
   kafka,
