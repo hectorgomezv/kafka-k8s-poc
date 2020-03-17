@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/kafka-producer",
   "scripts": {
-    "dev": "./node_modules/.bin/nodemon ./src/kafka-producer",
+    "dev": "./node_modules/.bin/nodemon ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

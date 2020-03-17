@@ -11,11 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Build container
-      run: docker build -t hectorgomezv1/kafka-k8s-poc:latest . 
-    - name: Push container
+    - name: Build kafka-producer container
+      run: docker build -t hectorgomezv1/kafka-k8s-poc-producer:latest ./kafka-producer
+    - name: Push kafka-producer container
       env:
         DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
       run: |
         docker login -u hectorgomezv1 -p $DOCKERHUB_PASSWORD
-        docker push hectorgomezv1/kafka-k8s-poc:latest
+        docker push hectorgomezv1/kafka-k8s-poc-producer:latest
+    - name: Build kafka-consumer container
+      run: docker build -t hectorgomezv1/kafka-k8s-poc-consumer:latest ./kafka-consumer
+    - name: Push kafka-consumer container
+      env:
+        DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      run: |
+        docker login -u hectorgomezv1 -p $DOCKERHUB_PASSWORD
+        docker push hectorgomezv1/kafka-k8s-poc-consumer:latest
