@@ -1,10 +1,7 @@
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 8080 });
+const { WS_PORT } = process.env;
 
-wss.on('connection', (ws) => {
-  ws.on('message', message => console.log(`received ${message}`));
-  ws.send('something');
-});
+const wss = new WebSocket.Server({ port: WS_PORT });
 
 module.exports = wss;

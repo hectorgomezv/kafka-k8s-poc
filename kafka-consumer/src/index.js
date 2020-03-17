@@ -7,8 +7,9 @@ const {
 
 const { consumeMessages } = require('./domain/use-cases');
 
-const { HTTP_PORT } = process.env;
+server.on('connection', (ws) => {
+  ws.send('Hello from server');
+  ws.on('message', message => ws.send(`received ${message}`));
+});
 
-server.listen(HTTP_PORT || 3000);
-
-(() => consumeMessages(kafka))();
+(() => consumeMessages(kafka, server))();
