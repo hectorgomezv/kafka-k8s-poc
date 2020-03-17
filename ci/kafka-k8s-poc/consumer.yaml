@@ -18,7 +18,7 @@ spec:
         app: kafka-k8s-poc-consumer
     spec:
       containers:
-      - image: hectorgomezv1/kafka-k8s-poc
+      - image: hectorgomezv1/kafka-k8s-poc-consumer
         name: kafka-k8s-poc-consumer
         imagePullPolicy: Always
         resources: {}

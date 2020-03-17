@@ -9,15 +9,3 @@ volumePermissions:
 zookeeper:
   volumePermissions:
     enabled: true
-
-# externalAccess:
-#   enabled: true
-# externalAccess:
-#   service:
-#     type: LoadBalancer
-# externalAccess:
-#   service:
-#     port: 19092
-# externalAccess:
-#   service:
-#     loadBalancerIP: ['kafka-k8s-poc-0:9092', 'kafka-k8s-poc-1:9092']

@@ -18,7 +18,7 @@ spec:
         app: kafka-k8s-poc-producer
     spec:
       containers:
-      - image: hectorgomezv1/kafka-k8s-poc
+      - image: hectorgomezv1/kafka-k8s-poc-producer
         name: kafka-k8s-poc-producer
         imagePullPolicy: Always
         resources: {}
