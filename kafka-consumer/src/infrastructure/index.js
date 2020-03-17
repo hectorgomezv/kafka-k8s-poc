@@ -1,5 +1,5 @@
 const kafka = require('./kafka');
-const server = require('./server');
+const server = require('./http-server');
 
 module.exports = {
   kafka,

@@ -7,7 +7,7 @@ const {
 
 const { consumeMessages } = require('./domain/use-cases');
 
-const { ROLE, HTTP_PORT } = process.env;
+const { HTTP_PORT } = process.env;
 
 server.listen(HTTP_PORT || 3000);
 
